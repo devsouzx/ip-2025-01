@@ -8,7 +8,7 @@ func main() {
 	var mediasAlunos []float64
 	fmt.Scan(&n)
 
-	for range n {
+	for i := 0; i < n; i++ {
 		fmt.Scan(&nota1, &nota2)
 		media = (nota1 + nota2) / 2
 		mediasAlunos = append(mediasAlunos, media)
