@@ -84,7 +84,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Abre a página Index e exibe todos os registrados na tela
-	tmpl.ExecuteTemplate(w, "Index", res)
+	tmpl.ExecuteTemplate(w, "Index.html", res)
 
 	// Fecha a conexão
 	defer db.Close()
@@ -118,13 +118,13 @@ func Show(w http.ResponseWriter, r *http.Request) {
 		n.Email = email
 	}
 
-	tmpl.ExecuteTemplate(w, "Show", n)
+	tmpl.ExecuteTemplate(w, "Show.html", n)
 
 	defer db.Close()
 }
 
 func New(w http.ResponseWriter, r *http.Request) {
-	tmpl.ExecuteTemplate(w, "New", nil)
+	tmpl.ExecuteTemplate(w, "New.html", nil)
 }
 
 func Edit(w http.ResponseWriter, r *http.Request) {
@@ -153,7 +153,7 @@ func Edit(w http.ResponseWriter, r *http.Request) {
 		n.Email = email
 	}
 
-	tmpl.ExecuteTemplate(w, "Edit", n)
+	tmpl.ExecuteTemplate(w, "Edit.html", n)
 
 	defer db.Close()
 }
@@ -182,7 +182,7 @@ func Insert(w http.ResponseWriter, r *http.Request) {
 	defer db.Close()
 
 	//Retorna a HOME
-	http.Redirect(w, r, "/", 301)
+	http.Redirect(w, r, "/", http.StatusMovedPermanently)
 }
 
 func Update(w http.ResponseWriter, r *http.Request) {
@@ -205,7 +205,7 @@ func Update(w http.ResponseWriter, r *http.Request) {
 
 	defer db.Close()
 
-	http.Redirect(w, r, "/", 301)
+	http.Redirect(w, r, "/", http.StatusMovedPermanently)
 }
 
 func Delete(w http.ResponseWriter, r *http.Request) {
@@ -224,5 +224,5 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 
 	defer db.Close()
 
-	http.Redirect(w, r, "/", 301)
+	http.Redirect(w, r, "/", http.StatusMovedPermanently)
 }
