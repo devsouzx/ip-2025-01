@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mensagens Recebidas</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f4f8;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+    }
+
+    .mensagem {
+      background: white;
+      border-left: 5px solid #4CAF50;
+      margin: 1rem auto;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+    }
+
+    .mensagem p {
+      margin: 0.3rem 0;
+    }
+
+    .mensagem strong {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mensagens Recebidas</h1>
+
+  {{range .Contatos}}
+    <div class="mensagem">
+      <p><strong>Nome:</strong> {{.Name}}</p>
+      <p><strong>Email:</strong> {{.Email}}</p>
+      <p><strong>Mensagem:</strong> {{.Message}}</p>
+    </div>
+  {{else}}
+    <p style="text-align: center;">Nenhuma mensagem recebida ainda.</p>
+  {{end}}
+</body>
+</html>
